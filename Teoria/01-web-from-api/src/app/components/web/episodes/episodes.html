@@ -1,0 +1,37 @@
+<h2 >Episodes By Season- Season </h2>
+@if(resourceSeason.isLoading()){
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+}
+
+@if(resourceSeason.error()){
+  <div class="alert alert-danger">Error loading Season Data</div>
+}
+
+
+<ngb-pagination class="d-flex justify-content-center my-3"
+                [page]="currentPage()"
+                [pageSize]="10"
+                [collectionSize]="total()"
+                [maxSize]="5"
+                [rotate]="true"
+                (pageChange)="changePage($event)"
+                [boundaryLinks]="true"></ngb-pagination>
+
+
+<div class="row">
+  @for(episode of episodes() ;track episode.id){
+    <div class="col-md-3 mb-3">
+      <div class="card shadow-sm animate__fadeIn animate__animated"
+           [routerLink]="['/episode-detail', episode.episode]">
+        <img [src]="episode.image" class="card-img-top" [alt]="episode.title">
+        <div class="card-body">
+          <h5 class="card-title">{{episode.title}}</h5>
+        </div>
+      </div>
+    </div>
+  }
+</div>

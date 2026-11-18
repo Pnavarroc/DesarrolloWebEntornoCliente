@@ -1,0 +1,13 @@
+<h2 class="text-center text-primary">One Piece Seasons</h2>
+
+<div class="row my-2">
+  @for(season of seasons(); track season.season_id){
+    <div class="col-4 my-2">
+      <div class="card shadow-sm" [routerLink]="['/season-episodes/',season.season_id]">
+        <div class="card-header">
+          <h3 class="card-title text-secondary">{{season.season_title}}</h3>
+        </div>
+      </div>
+    </div>
+  }
+</div>

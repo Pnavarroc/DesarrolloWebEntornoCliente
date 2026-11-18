@@ -1,0 +1,11 @@
+img:hover{
+  cursor: pointer;
+  transform: translateY(2px);
+  transition-duration: 0.4s;
+  border: solid 2px purple;
+}
+
+img{
+  transition-duration: 0.3s;
+  border: solid 2px transparent;
+}

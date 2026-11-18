@@ -1,0 +1,58 @@
+@if (isLoading()){
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+}@else if(isError()){
+  <div class="alert alert-danger text-center" role="alert">
+    Error al cargar los datos.
+  </div>
+}@else{
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+    @for(card of cards(); track card.id){
+      <div class="card h-100 shadow-sm bg-light">
+        <div class="p-3 text-center bg-dark bg-opacity-10 rounded-top">
+          <img [src]="card.card_images[0]?.image_url_small"
+               [alt]="card.name"
+               loading="lazy"
+               class="img-fluid rounded shadow-sm">
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div class="mb-2">
+            <span class="badge bg-secondary me-1">{{ card.type }}</span>
+            @if(card.attribute){
+              <span class="badge bg-info text-dark">{{card.attribute}}</span>
+            }
+          </div>
+          <h5 class="card-title fs-6 fw-bold text-truncate" [title]="card.name">{{ card.name }}</h5>
+          <p class="card-text small text-muted mb-3">
+            {{ card.race }}
+            @if(card.level){
+              <span>- Level {{ card.level }}</span>
+            }
+          </p>
+
+          @if(card.atk !== undefined){
+            <div class="d-flex justify-content-between small fw-semibold border-top pt-2 mb-3 text-secondary">
+              <span>ATK/ {{card.atk}}</span>
+              <span>DEF/ {{card.def ?? '-'}}</span>
+            </div>
+          }
+
+          <a class="btn btn-primary btn-sm mt-auto w-100 fw-semibold" [routerLink]="['/card-detail',card.id]">
+            Details
+          </a>
+        </div>
+      </div>
+    }@empty{
+      <div class="col-12 text-center py-5">
+        <p class="text-muted fs-5">There are no cards</p>
+      </div>
+    }
+  </div>
+
+
+
+}

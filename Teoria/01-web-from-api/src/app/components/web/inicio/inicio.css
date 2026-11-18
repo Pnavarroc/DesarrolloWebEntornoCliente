@@ -1,0 +1,11 @@
+img:hover{
+  transform: scale(1.05);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+img{
+  border-radius: 10px;
+  transform: scale(1);
+  transition-duration: 1s;
+}

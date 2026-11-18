@@ -1,0 +1,10 @@
+.card:hover{
+ transform: rotate(2deg);
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-color: grey;
+}
+
+.card{
+  transition-duration: 0.4s;
+}
