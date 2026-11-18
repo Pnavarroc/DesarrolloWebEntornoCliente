@@ -1,0 +1,9 @@
+@defer (when  isVisible()){
+  <app-product-detail-component [productId]="1" ]/>
+} @placeholder(minimum 500ms) {
+  <div class="skeleton-placeholder">Haz un scroll...</div>
+} @loading (after 500ms; minimum 1500ms){
+  <div class="spinner-border text-primary" role="status"></div>
+} @error {
+  <div class="alert alert-warning">No se han podido cargar las opciones</div>
+}

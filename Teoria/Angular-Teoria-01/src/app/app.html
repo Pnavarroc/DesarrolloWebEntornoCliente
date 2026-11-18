@@ -1,0 +1,6 @@
+<app-navbar (openCart)="isCartOpen.set(true)"/> <!--Aqui tenemos el componente Navbar que es estático-->
+
+<router-outlet/>
+<app-footer/>
+
+<app-cart-drawer-component [isOpen]="isCartOpen()" (closeDrawer)="isCartOpen.set(false)"/>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" routerLink="/">🛒 AngularStore</a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/catalog">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/category-list">Category-list</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/user-profile">User profile</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/cart-summary">Cart summary</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/product-detail">Product detail</a></li>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Teoria
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/teoria4">Teoria4</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria5">Teoria5</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria7">Teoria7</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria8">Teoria8</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria9">Teoria9</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria10">Teoria10</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria11">Teoria11</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria12">Teoria12</a></li>
+            <li><a class="dropdown-item" routerLink="/teoria15">Teoria15</a></li>
+
+          </ul>
+        </div>
+      </ul>
+      <div class="d-flex me-2">
+        <button class="btn btn-outline-light position-relative d-flex align-items-center gap-2" (click)="onOpenCart()">
+          🛒
+          @if (cartService.totalItems() > 0) {
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger shadow">
+              {{cartService.totalItems()}}
+              <span class="visually-hidden">Artículos en el carrito</span>
+            </span>
+
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+

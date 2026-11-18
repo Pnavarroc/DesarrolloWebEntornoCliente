@@ -1,0 +1,36 @@
+<div class="container py-4 ">
+  @if (isLoading()){
+    <div class="d-flex align-items-center justify-content-center">
+      <span class="badge theme-primary">
+        <span class="spinner-border" aria-hidden="true"></span>
+        <span role="status">Loading...</span>
+      </span>
+    </div>
+  } @else if (hasError()){
+    <div class="alert alert-danger shadow-sm d-flex align-items-center justify-content-between py-4" role="alert">
+      <div>
+        <h4 class="alert-heading mb-1">⚠ No se ha podido cargar el producto!</h4>
+        <p class="mb-0">El artículo solicitado no existe o el servicio no está disponible en este momento.</p>
+      </div>
+      <button class="btn btn-outline-danger" >🔄 Reintenta con producto #1</button> <!--(click)="productId.set(1)"-->
+    </div>
+  }@else{
+    @if(productOk(); as prod){
+      <div class="card shadow-sm p-4">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img [src]="prod.image || 'http://via.placeholder.com/150'" class="img-fluid max-h-48">
+          </div>
+          <div class="col-md-8">
+            <span class="badge bg-secondary mb-2">{{prod.category}}</span>
+            <h2>{{prod.title}}</h2>
+            <p class="text-muted">{{prod.description}}</p>
+            <h3 class="text-primary fw-bold">{{prod.price |currency: 'EUR'}}</h3>
+            <button class="btn btn-sm btn-danger" >Over 9000!</button> <!--(click)="testError()"-->
+          </div>
+        </div>
+      </div>
+    }
+  }
+
+</div>

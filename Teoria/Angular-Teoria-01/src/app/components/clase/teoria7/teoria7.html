@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-secondary">Teoría 7</h1>
+
+  <p>
+    <button (click)="ejemplo()" class="btn btn-outline-primary">VER SIGNAL</button>
+    <button (click)="ejemplo2()" class="btn btn-outline-primary">Sumar mi contador</button>
+    <button (click)="ejemplo3()" class="btn btn-outline-primary">Sumar contador</button>
+  </p>
+
+  <p>Signal: {{contador}}</p>
+  <p>Contenido de la signal: {{contador()}}</p>
+  <p>Contenido de la signal READONLY: {{contadorProtected()}}</p>
+
+  <p>Variable mi contador {{miContador}}</p>
+
+
+  <h2>Objetos</h2>
+
+  <p>Nombre: {{usuario().nombre}}</p>
+  <p>Edad: {{usuario().edad}}</p>
+  <p>
+    <button (click)="cambiarUsuario()" class="btn btn-danger">Cambiar usuario</button>
+  </p>
+  <p>
+    <button (click)="cambiarUsuarioOk()" class="btn btn-success">Cambiar usuario OK</button>
+  </p>
+</div>
+
